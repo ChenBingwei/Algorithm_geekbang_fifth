@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.21)
+project(Algorithm_geekbang_fifth)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(ltc26_remove_duplicates_from_sorted_array week01/example/ltc26_remove_duplicates_from_sorted_array.cpp)
+add_executable(ltc283_move_zeroes week01/example/ltc283_move_zeroes.cpp)
+add_executable(ltc88_merge_sorted_array week01/example/ltc88_merge_sorted_array.cpp)
