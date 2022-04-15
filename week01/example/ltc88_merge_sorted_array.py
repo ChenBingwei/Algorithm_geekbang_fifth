@@ -17,4 +17,3 @@ if __name__ == '__main__':
 
     merge(nums1, m, nums2, n)
     assert nums1 == expected_nums
-    print("SUCCESS")
