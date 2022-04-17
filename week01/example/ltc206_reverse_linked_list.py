@@ -18,7 +18,7 @@ def reverseList(head: ListNode) -> ListNode:
     return last
 
 
-# common tool
+# --------------debug---------------------
 def stringToIntegerList(input):
     return json.loads(input)
 
