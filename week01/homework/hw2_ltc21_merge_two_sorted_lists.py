@@ -8,7 +8,7 @@ class ListNode:
 
 
 class Solution:
-    def mergeTwoLists(self, list1, list2):
+    def mergeTwoLists_myself(self, list1, list2):
         # -100 <= Node.val <= 100
         head = ListNode(val=-101)
         curr = head

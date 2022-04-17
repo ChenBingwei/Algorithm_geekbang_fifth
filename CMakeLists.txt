@@ -7,3 +7,4 @@ add_executable(ltc26_remove_duplicates_from_sorted_array week01/example/ltc26_re
 add_executable(ltc283_move_zeroes week01/example/ltc283_move_zeroes.cpp)
 add_executable(ltc88_merge_sorted_array week01/example/ltc88_merge_sorted_array.cpp)
 add_executable(ltc206_reverse_linked_list week01/example/ltc206_reverse_linked_list.cpp)
+add_executable(acwing146 week01/example/acwing146.cpp)
