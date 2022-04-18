@@ -61,14 +61,11 @@ int main() {
     }
     for (int i = n; i > 1; i--) {
         Node *curr = pos[i];
-        if (curr->pre->pre == nullptr) {
+        if (curr->pre->pre == nullptr ||
+            (curr->next->next != nullptr && a[i] - curr->pre->val > curr->next->val - a[i])) {
             ans[i] = curr->next->idx;
-        } else if (curr->next->next == nullptr) {
-            ans[i] = curr->pre->idx;
-        } else if (a[i] - curr->pre->val <= curr->next->val - a[i]) {
-            ans[i] = curr->pre->idx;
         } else {
-            ans[i] = curr->next->idx;
+            ans[i] = curr->pre->idx;
         }
         DeleteNode(curr);
     }
