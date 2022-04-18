@@ -20,7 +20,7 @@ Node *pos[SIZE];
 
 // 双链表插入模板，在node后面插入一个新结点
 Node *AddNode(Node *node, int idx) {
-    Node* newNode = new Node();
+    Node *newNode = new Node();
     newNode->val = a[idx];
     newNode->idx = idx;
     node->next->pre = newNode;
@@ -32,6 +32,7 @@ Node *AddNode(Node *node, int idx) {
 
 }
 
+// 双链表删除模板
 void DeleteNode(Node *node) {
     node->pre->next = node->next;
     node->next->pre = node->pre;
@@ -47,20 +48,24 @@ int main() {
     // rk的含义：rk[i]表示排名第i名的是谁？（是哪个下标）？
     // 有序序列为a[rk[1]], a[rk[2]], a[rk[3]], ...a[rk[n]]
     sort(rk + 1, rk + n + 1, [&](int rki, int rkj) { return a[rki] < a[rkj]; });
+
     // 保护节点
     Node head{};
     Node tail{};
     head.next = &tail;
     tail.pre = &head;
-
-    head.val = a[rk[1]] - 1e9;
-    tail.val = a[rk[n]] + 1e9;
+    head.pre = nullptr;
+    tail.next = nullptr;
     for (int i = 1; i <= n; i++) {
         pos[rk[i]] = AddNode(tail.pre, rk[i]);
     }
     for (int i = n; i > 1; i--) {
-        Node* curr = pos[i];
-        if (a[i] - curr->pre->val <= curr->next->val - a[i]) {
+        Node *curr = pos[i];
+        if (curr->pre->pre == nullptr) {
+            ans[i] = curr->next->idx;
+        } else if (curr->next->next == nullptr) {
+            ans[i] = curr->pre->idx;
+        } else if (a[i] - curr->pre->val <= curr->next->val - a[i]) {
             ans[i] = curr->pre->idx;
         } else {
             ans[i] = curr->next->idx;
