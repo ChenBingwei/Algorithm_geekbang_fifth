@@ -10,3 +10,4 @@ add_executable(ltc206_reverse_linked_list week01/example/ltc206_reverse_linked_l
 add_executable(acwing146 week01/example/acwing146.cpp)
 add_executable(ltc20_valid_parentheses week01/example/ltc20_valid_parentheses.cpp)
 add_executable(ltc155_min_stack week01/example/ltc155_min_stack.cpp)
+add_executable(ltc150_evaluate_reverse_polish_notation week01/example/ltc150_evaluate_reverse_polish_notation.cpp)
