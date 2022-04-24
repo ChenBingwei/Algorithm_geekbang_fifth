@@ -22,7 +22,8 @@ class Solution:
                 min_len = min(min_len, tmp_len)
         return min_len
 
+
 if __name__ == '__main__':
-    nums = [1,2,2,3,1,4,2]
+    nums = [1, 2, 2, 3, 1, 4, 2]
     expect_out = 6
     assert expect_out == Solution().findShortestSubArray(nums)
