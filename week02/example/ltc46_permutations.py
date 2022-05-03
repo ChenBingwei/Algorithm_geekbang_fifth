@@ -2,25 +2,23 @@ from typing import List
 
 
 class Solution:
-
-    def permute(self, nums):
+    def permute(self, nums: List[int]) -> List[List[int]]:
         n = len(nums)
-        ans = []
         used = [False] * n
-        a = []
+        ans = []
+        tmp_permutation = []
 
         def recur(nums, pos):
             if pos == n:
-                ans.append(a.copy())
+                ans.append(tmp_permutation.copy())
                 return
-            for i, num in enumerate(nums):
-                if used[i]:
-                    continue
-                a.append(num)
-                used[i] = True
-                recur(nums, pos + 1)
-                used[i] = False
-                a.pop()
+            for i in range(n):
+                if not used[i]:
+                    tmp_permutation.append(nums[i])
+                    used[i] = True
+                    recur(nums, pos + 1)
+                    used[i] = False
+                    tmp_permutation.pop()
 
         recur(nums, 0)
         return ans
