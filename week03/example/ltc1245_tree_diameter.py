@@ -36,3 +36,37 @@ class Solution:
             if v > depth_list[ans]:
                 ans = k
         return (ans, depth_list[ans])
+
+
+class Solution2:
+
+    def __init__(self):
+        self.edge_dict = {}
+        self.visited = {}
+        self.max_depth = 0
+        self.dest_node = 0
+
+    def treeDiameter(self, edges: List[List[int]]) -> int:
+        if not edges:
+            return 0
+        for x, y in edges:
+            self.edge_dict.setdefault(x, [])
+            self.edge_dict.setdefault(y, [])
+            self.edge_dict[x].append(y)
+            self.edge_dict[y].append(x)
+        self.visited = {x: False for x in self.edge_dict}
+        self.dfs_find_furthest(0, 0)
+        self.max_depth = 0
+        self.dfs_find_furthest(self.dest_node, 0)
+        return self.max_depth
+
+    def dfs_find_furthest(self, node, depth):
+        if self.visited[node]:
+            return
+        self.visited[node] = True
+        if self.max_depth < depth:
+            self.max_depth = depth
+            self.dest_node = node
+        for i in self.edge_dict[node]:
+            self.dfs_find_furthest(i, depth + 1)
+        self.visited[node] = False
